@@ -1,10 +1,23 @@
-# cherished-worlds
+# Cherished Worlds (Horizon port)
 
-Exact 1:1 Horizon Rust port of [Cherished Worlds](https://github.com/illusivesoulworks/cherishedworlds)
-by Illusive Soulworks (LGPL-3.0-or-later). Every upstream Java class maps to
-one Rust module with the same names, logic, defaults, and control flow; the
-Minecraft client / SpectreLib / MixinExtras surfaces the engine binds sit in
-`src/seams.rs` with one seam per upstream call.
+Exact 1:1 Rust port of [Cherished Worlds](https://github.com/illusivesoulworks/cherishedworlds)
+(Illusive Soulworks, LGPL-3.0-or-later) for the Horizon client.
 
-Port: sparticle. Upstream license and credit carried: the crate is
-LGPL-3.0-or-later, copyright (C) 2018-2026 Illusive Soulworks.
+Every Java class maps to one module: `common_mod`, `config`, `constants`,
+`favorites_list`, `mixin_hooks`, `mixins`, `screen_event_hooks`, `services`,
+`widgets/*`, with `seams.rs` carrying the engine-bound surfaces (Minecraft
+client types, SpectreLib config, MixinExtras) the engine binds.
+
+The mod API wires the original's config entry as a setting (the backup world
+type, default `All`, upstream's own lang key) and runs the original's entry
+(`FavoritesList.load()`) on client setup.
+
+Engine-stage seams: the world-list and screen hooks (favorites star, backup
+status, swap guard, favorite widgets) have no mod API surface yet and stay
+behind the port's host traits.
+
+## License
+
+Upstream is Copyright (C) 2018-2026 Illusive Soulworks, LGPL-3.0-or-later.
+This port carries the upstream license and credit per the port policy:
+LICENSE holds the LGPL-3.0 text, LICENSE.GPL the GPL-3.0 text it incorporates.

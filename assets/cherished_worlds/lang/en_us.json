@@ -1,0 +1,10 @@
+{
+  "selectWorld.cherishedworlds.favorite": "Favorite",
+  "selectWorld.cherishedworlds.unfavorite": "Unfavorite",
+  "gui.cherishedworlds.config.backupWorldType": "Determines which worlds prompt for a backup when loaded with a newer Minecraft version.",
+  "gui.cherishedworlds.config.backupWorldType.all": "All",
+  "gui.cherishedworlds.config.backupWorldType.favorited": "Favorited",
+  "gui.cherishedworlds.config.backupWorldType.none": "None",
+  "gui.narrate.cherishedworlds.favorite": "Favorited",
+  "gui.narrate.cherishedworlds.unfavorite": "Unfavorited"
+}

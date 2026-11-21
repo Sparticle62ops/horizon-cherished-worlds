@@ -1,0 +1,44 @@
+id = "cherished_worlds"
+name = "Cherished Worlds"
+version = "1.0.0"
+description = """Exact 1:1 Rust translation of [Cherished Worlds](https://github.com/illusivesoulworks/cherishedworlds)
+(upstream Java, LGPL-3.0-or-later), by Illusive Soulworks. Carries the upstream license and credit.
+
+Ported for the Horizon client by sparticle.
+
+The mod remembers your favorite worlds: a favorites set loaded from
+`<game dir>/cherishedworlds-favorites.dat`, the favorites star on world and
+server entries with favorites-first sort, the favorite toggle on the create
+world screen, the delete guard for favorited entries, the server-list swap
+guard, the backup status upgrade prompt (which worlds prompt for a backup when
+loaded with a newer Minecraft version, per the backup type setting), and the
+favorite widgets on the create-world, join-multiplayer and select-world
+screens.
+
+The package ships the full module tree (`common_mod`, `config`, `constants`,
+`favorites_list`, `mixin_hooks`, `mixins`, `screen_event_hooks`, `services`,
+`widgets`, `seams`), matching source revision on main. The mod API wires the
+original's config entry as a setting (the backup world type, default `All`,
+upstream's own lang key as the label) and runs the original's entry
+(`FavoritesList.load()`) on client setup.
+
+Known seams (engine-stage; tracked):
+- the world-list and screen hooks (favorites star rendering on world and server
+  entries, the backup-status hook, the swap guard, the favorite widgets) have no
+  mod API surface; the port's host traits stand in until one lands.
+
+Pinned to Horizon f00125f and horizon-mixins e59da909; exact 1:1 Rust port tested against those revisions.
+
+Licence: LGPL-3.0-or-later (LICENSE carries the LGPL text, LICENSE.GPL the GPL text it incorporates). Source: https://github.com/Sparticle62ops/horizon-cherished-worlds
+"""
+authors = ["Illusive Soulworks", "sparticle"]
+license = "LGPL-3.0-or-later"
+homepage = "https://github.com/Sparticle62ops/horizon-cherished-worlds"
+api = "0.2"
+side = "client"
+capabilities = ["registries"]
+
+[native]
+game = "26.3"
+horizon = "f00125f61f794aaa3d4e950d301f353b35b6ee3d"
+mixins = "e59da9094f0c2fdda6c627fe9eff22dec6a906f0"
